@@ -16,3 +16,8 @@ Al hacer uso de este web service envia al servidor una respuesta tambien en `.js
     "expire": 1706083247
 }
 ```
+
+## comprobartoken.php
+Este archivo contiene una funcion `'verificarJWT()'` que se encarga de verificar un token jwt, obtenido a traves de las cabeceras del servidor haciendo uso de la cabecera `Authorization` en este caso de tipo Bearer.
+
+Devuelve en caso de ser correcto "Acceso permitido" y si el token es incorrecto devuelve `Error 401: Unauthorized - Token inválido`.
