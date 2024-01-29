@@ -1,3 +1,16 @@
+# Guia de instalación de la Base de Datos
+## Crear la Base de Datos
+En la carpeta DB, esta el archivo `cesur.sql`. Este es el archivo que debemos importar en el phpMyAdmin. Una vez creada la base de datos continuamos con la configuración del conector a la misma.
+
+## Configuración del conector
+Para la utilización actual de los Web Services debemos configurar una base de datos. Para ello primero configuramos el archivo `db.php`. Este archivo es el conector a nuestra base de datos. Dentro de el, debemos editar los campos `$dsn, $user y $pass` que hay en la clase `DB_Configuration`. Completando con los datos de nuestra Base de Datos.
+```
+  public $dsn = "mysql:host=localhost;dbname=cesur";
+  public $user = "root";
+  public $pass = "";
+```
+Una vez cambiados los campos, los Web services seran funcionales.
+
 # Guia de uso de los Web Services
 ## signin.php
 Este archivo es el encargado de crear el token jwt, para ello necesita leer un archivo `.json` con la siguiente estructura:  
