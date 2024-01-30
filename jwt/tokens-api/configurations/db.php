@@ -7,13 +7,6 @@
   public $user = "root";
   public $pass = "";
 
-  // Creamos el constructor sobrecargado con los atributos anteriores
-  public function __construct($dsn = "mysql:host=localhost;dbname=cesur", $user = "root", $pass = ""){
-    $this->dsn = $dsn;
-    $this->user = $user;
-    $this->pass = $pass;
-  }
-
   // Función con la extensión PDO para realizar la conexión, en un bloque try/catch para capturar posibles errores
   public function db_connect() {
     try {
