@@ -10,27 +10,7 @@
     $dbService = new DB_Configuration();
     $connection = $dbService->db_connect();
     
-    if (isset($_GET['email'])){
-        
-        $email = $_GET['email'];
-
-        $sql = "SELECT * FROM persona WHERE email = '$email'";
-        $resultado = $connection->query($sql);
-
-        foreach ($resultado as $fila){
-            $DNI = $fila['DNI'];
-            $nombre = $fila['nombre'];
-            $apellido1 = $fila["apellido1"];
-            $apellido2 = $fila["apellido2"];
-            $curso = $fila['curso'];
-            $ciclo = $fila['ciclo'];
-        }
-
-        $respuesta = array('dni' => $DNI, 'nombre' => $nombre, 'apellido1' => $apellido1, 'apellido2' => $apellido2, 'curso' => $curso, 'ciclo' =>$ciclo);
-        header('Content-Type: application/json');
-        echo json_encode($respuesta);
-        
-    }elseif(isset($_POST['email'])){
+    if(isset($_POST['email'])){
         
             $email = $_POST['email'];
 
