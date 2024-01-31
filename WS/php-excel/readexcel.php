@@ -1,8 +1,23 @@
 <?php
     require 'vendor/autoload.php';
+    include_once '../jwt/tokens-api/comprobartoken.php';
+    include_once '../jwt/tokens-api/header.php';
 
     use PhpOffice\PhpSpreadsheet\IOFactory;
-    
+    print_r($_SERVER);
+    if(!array_key_exists('HTTP_AUTHORIZATION', $_SERVER)){
+        http_response_code(401);
+        die;
+    }
+    try {
+        if (!verificarJWT()) {
+            http_response_code(401);
+            die;
+        }
+    } catch (UnexpectedValueException $exception) {
+        echo $exception->getMessage();
+    }
+
     $modulo = $_POST['modul'];
     $any =  $_POST['any'];
     echo $excelFilePath = './excels/Cuaderno_TSDAW_'.$modulo.'_'.$any.'.xlsx';
