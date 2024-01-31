@@ -25,6 +25,33 @@ USE `cesur`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `frases_motivadoras`
+--
+
+CREATE TABLE `frases_motivadoras` (
+  `id` int(11) NOT NULL,
+  `frase` varchar(255) NOT NULL,
+  `fecha` date NOT NULL,
+  `veces_utilizada` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `frases_motivadoras`
+--
+
+INSERT INTO `frases_motivadoras` (`id`, `frase`, `fecha`, `veces_utilizada`) VALUES
+(1, 'La persistencia es la clave del éxito.', '2024-01-31', 0),
+(2, 'Cada logro comienza con la decisión de intentarlo.', '2024-01-31', 0),
+(3, 'El único modo de hacer un gran trabajo es amar lo que haces.', '2024-01-31', 0),
+(4, 'No importa lo lento que vayas, siempre y cuando no te detengas.', '2024-01-31', 0),
+(5, 'La vida es como una bicicleta, para mantener el equilibrio, debes seguir adelante.', '2024-01-31', 0),
+(6, 'Cada día es una nueva oportunidad para cambiar tu vida.', '2024-01-31', 0),
+(7, 'El único modo de hacer un gran trabajo es amar lo que haces.', '2024-01-31', 0),
+(8, 'La felicidad es una dirección, no un lugar.', '2024-01-31', 0),
+(9, 'El único límite para nuestros logros de mañana está en nuestras dudas de hoy.', '2024-01-31', 0);
+
+-- --------------------------------------------------------
+--
 -- Estructura de tabla para la tabla `persona`
 --
 
