@@ -3,7 +3,7 @@
 // Creamos la clase que albergará nuestra conexión a la BBDD, para luego utilizar el objeto en cada archivo que necesite BBDD
   Class DB_Configuration {
   // Iniciamos los atributos con la información para realizar la conexión
-  public $dsn = "mysql:host=localhost;dbname=cesur";
+  public $dsn = "mysql:host=localhost;dbname=cesur;port=3306";
   public $user = "root";
   public $pass = "";
 

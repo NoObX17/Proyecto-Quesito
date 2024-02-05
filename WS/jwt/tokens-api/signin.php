@@ -1,7 +1,13 @@
 <?php
 include_once './configurations/db.php';
-include_once './header.php';
-require "../vendor/autoload.php";
+//include_once './header.php';
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE");
+header("Access-Control-Allow-Origin: * ");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+require_once '../../vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
@@ -38,7 +44,7 @@ if($numOfRows > 0){
         $audience_claim = "THE_AUDIENCE";
         $issuedat_claim = time(); // time issued 
         $notbefore_claim = $issuedat_claim + 10; 
-        $expire_claim = $issuedat_claim + 60; 
+        $expire_claim = $issuedat_claim + 6000000; 
         $token = array(
             "iss" => $issuer_claim,
             "aud" => $audience_claim,

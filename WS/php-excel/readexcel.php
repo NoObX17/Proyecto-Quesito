@@ -1,10 +1,15 @@
 <?php
-    require 'vendor/autoload.php';
+    require '../vendor/autoload.php';
     include_once '../jwt/tokens-api/comprobartoken.php';
-    include_once '../jwt/tokens-api/header.php';
+
+    header("Access-Control-Max-Age: 3600");
+    header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE");
+    header("Access-Control-Allow-Origin: * ");
+    header("Content-Type: application/json; charset=UTF-8");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     use PhpOffice\PhpSpreadsheet\IOFactory;
-    print_r($_SERVER);
+
     if(!array_key_exists('HTTP_AUTHORIZATION', $_SERVER)){
         http_response_code(401);
         die;
@@ -18,9 +23,12 @@
         echo $exception->getMessage();
     }
 
-    $modulo = $_POST['modul'];
-    $any =  $_POST['any'];
-    echo $excelFilePath = './excels/Cuaderno_TSDAW_'.$modulo.'_'.$any.'.xlsx';
+    $api_data = json_decode(file_get_contents("php://input"));
+    $modulo = $api_data->modul;
+    $any = $api_data->any;
+    $idAlumno = $api_data->id;
+
+    echo $excelFilePath = '../../excels/Cuaderno_TSDAW_'.$modulo.'_'.$any.'.xlsx';
     $spreadsheet = IOFactory::load($excelFilePath);
     $worksheet = $spreadsheet->getActiveSheet();
 
@@ -31,8 +39,7 @@
     
     $data = array();
 
-    if (isset($_POST['id'])) {
-        $idAlumno = $_POST['id'];
+    if ($idAlumno) {
     
         for ($row = 1; $row <= $highestRow; ++$row) {
             $rowData = array();

@@ -1,6 +1,10 @@
 <?php
-include_once './header.php';
-require "../vendor/autoload.php";
+//include_once './header.php';
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE");
+header("Access-Control-Allow-Origin: * ");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 use \Firebase\JWT\JWT;
 use \Firebase\JWT\Key;
@@ -16,8 +20,9 @@ function verificarJWT(){
 
     try {
         $decoded = JWT::decode($jwt, new Key($secret_key, 'HS256'), $headers);
-
-        echo ("Acceso permitido");
+        
+        //echo ("Acceso permitido");
+        return true;
 
     } catch (Exception $e) {
         header("HTTP/1.1 401 Unauthorized");
@@ -25,5 +30,4 @@ function verificarJWT(){
     }
 }
 
-verificarJWT();
 ?>
