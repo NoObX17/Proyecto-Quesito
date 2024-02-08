@@ -72,11 +72,12 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`DNI`, `password`, `nombre`, `apellido1`, `apellido2`, `email`, `ciclo`, `curso`, `estado`) VALUES
-('111222333', 'secret123', 'Eva', 'Evans', 'Miller', 'eva.e@example.com', 'Chemistry', 2, 1),
-('123456789', 'password123', 'John', 'Doe', 'Smith', 'john.doe@example.com', 'Computer Science', 1, 1),
-('555111222', 'myp@ss', 'Alice', 'Anderson', 'Brown', 'alice.a@example.com', 'Mathematics', 3, 1),
-('987654321', 'securepass', 'Jane', 'Johnson', 'Williams', 'jane.j@example.com', 'Electrical Engineering', 2, 1),
-('999888777', 'strongpass', 'Bob', 'Baker', 'Jones', 'bob.b@example.com', 'Physics', 1, 0);
+('1', 'secret123', 'David', 'Tous', 'Rodriguez', 'david@tous.com', 'DAW', 2, 1),
+('2', 'secret123', 'Andres', 'Martinez', 'Gual', 'andres@martinez.com', 'DAW', 2, 1),
+('3', 'secret123', 'Migel', 'Orts', 'Blaya', 'miguel@orts.com', 'DAW', 2, 1),
+('4', 'secret123', 'Marc', 'Morlá', 'Isern', 'marc@morla.com', 'DAW', 2, 1),
+('5', 'secret123', 'Tomas', 'Carrasco', 'Battauz', 'tomas@carrasco.com', 'DAW', 2, 1),
+('6', 'secret123', 'Hugo', 'Serra', 'Ruiz', 'hugo@serra.com', 'DAW', 2, 1);
 
 --
 -- Índices para tablas volcadas
