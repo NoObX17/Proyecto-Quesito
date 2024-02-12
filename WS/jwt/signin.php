@@ -1,16 +1,22 @@
 <?php
 include_once './configurations/db.php';
-//include_once './header.php';
+header("Cache-Control: no-cache"); // Forzar no caché
 header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE");
+header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE, OPTIONS");
 header("Access-Control-Allow-Origin: * ");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-require_once '../../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
+// Verificar el método de la solicitud
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Si es una solicitud OPTIONS, responder con éxito y terminar la ejecución del script
+    header('HTTP/1.1 200 OK');
+    exit();
+}
 
 $email = '';
 $password = '';
@@ -18,6 +24,10 @@ $dbService = new DB_Configuration();
 $conn = $dbService->db_connect();
 
 $api_data = json_decode(file_get_contents("php://input"));
+
+// $headers = getallheaders();
+// print_r (json_encode($headers));
+// print_r (json_encode($api_data));
 $email = $api_data->email;
 $password = $api_data->password;
 
@@ -77,4 +87,3 @@ if($numOfRows > 0){
     http_response_code(400);
     echo json_encode(array("message" => "Login failed"));
 }
-?>
