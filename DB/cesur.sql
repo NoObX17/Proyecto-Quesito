@@ -72,12 +72,12 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`DNI`, `password`, `nombre`, `apellido1`, `apellido2`, `email`, `ciclo`, `curso`, `estado`) VALUES
-('1', 'secret123', 'David', 'Tous', 'Rodriguez', 'david@tous.com', 'DAW', 2, 1),
-('2', 'secret123', 'Andres', 'Martinez', 'Gual', 'andres@martinez.com', 'DAW', 2, 1),
-('3', 'secret123', 'Migel', 'Orts', 'Blaya', 'miguel@orts.com', 'DAW', 2, 1),
-('4', 'secret123', 'Marc', 'Morlá', 'Isern', 'marc@morla.com', 'DAW', 2, 1),
-('5', 'secret123', 'Tomas', 'Carrasco', 'Battauz', 'tomas@carrasco.com', 'DAW', 2, 1),
-('6', 'secret123', 'Hugo', 'Serra', 'Ruiz', 'hugo@serra.com', 'DAW', 2, 1);
+('1', 'secret123', 'David', 'Tous', 'Rodriguez', 'david@tous.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1),
+('2', 'secret123', 'Andres', 'Martinez', 'Gual', 'andres@martinez.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1),
+('3', 'secret123', 'Migel', 'Orts', 'Blaya', 'miguel@orts.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1),
+('4', 'secret123', 'Marc', 'Morlá', 'Isern', 'marc@morla.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1),
+('5', 'secret123', 'Tomas', 'Carrasco', 'Battauz', 'tomas@carrasco.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1),
+('6', 'secret123', 'Hugo', 'Serra', 'Ruiz', 'hugo@serra.com', 'Desarrollo de aplicaciones Web (DAW)', 2, 1);
 
 --
 -- Índices para tablas volcadas
