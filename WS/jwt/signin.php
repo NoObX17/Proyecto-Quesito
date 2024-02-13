@@ -32,7 +32,7 @@ $email = $api_data->email;
 $password = $api_data->password;
 
 $table = 'persona';
-$query = "SELECT DNI, `password`, nombre, apellido1, apellido2 FROM " . $table . " WHERE email =:email  LIMIT 0,1";
+$query = "SELECT DNI, `password`, nombre, apellido1, apellido2, ciclo FROM " . $table . " WHERE email =:email  LIMIT 0,1";
 
 $stmt = $conn->prepare( $query );
 $stmt->bindParam(':email', $email);
@@ -47,13 +47,14 @@ if($numOfRows > 0){
     $nombre = $row['nombre'];
     $apellido1 = $row['apellido1'];
     $apellido2 = $row['apellido2'];
+    $ciclo = $row['ciclo'];
 
     if(password_verify($password, $pass)){
         $secret_key = "contrasecreta";
         $issuer_claim = "localhost"; 
         $audience_claim = "THE_AUDIENCE";
         $issuedat_claim = time(); // time issued 
-        $notbefore_claim = $issuedat_claim + 10; 
+        $notbefore_claim = $issuedat_claim - 60; 
         $expire_claim = $issuedat_claim + 6000000; 
         $token = array(
             "iss" => $issuer_claim,
@@ -66,7 +67,8 @@ if($numOfRows > 0){
                 "nombre" => $nombre,
                 "apellido1" => $apellido1,
                 "apellido2" => $apellido2,
-                "Email" => $email
+                "Email" => $email,
+                "ciclo" => $ciclo,
         ));
 
         http_response_code(200);
