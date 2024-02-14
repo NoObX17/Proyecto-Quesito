@@ -65,7 +65,7 @@ Devolvera un `JSON`con las asignaturas donde se encuentra matriculado ese usuari
 ```
 
 ## raexcel.php
-Este archivo realiza un web service que envia un `JSON` con las notas de todos los RA y ademas la media de esa asignatura. Para ello necesita obtener el modulo, el año del curso y la id del alumno. Al igual que `mediasexcel.php` necesita tambien un token valido obtenido desde las cabeceras HTTP.
+Este archivo realiza un web service que envia un `JSON` con las notas de todos los RA y sus respectivos porcentajes. Para ello necesita obtener el modulo, el año del curso y la id del alumno. Al igual que `mediasexcel.php` necesita tambien un token valido obtenido desde las cabeceras HTTP.
 ```
 {
     "modul":"DWES",
@@ -77,18 +77,46 @@ El resultado sera codificado y enviado en `JSON` con el siguiente formato:
 ```
 {
     "Notas": {
-        "RA1": 4,
-        "RA2": 5.29,
-        "RA3": 5.92,
-        "RA4": 5.26,
-        "RA5": 6.29,
-        "RA6": 6.54,
-        "RA7": 0,
-        "RA8": 0,
-        "RA9": 0,
-        "RA10": 0,
-        "RA11": 3.7,
-        "Media": 3.0833333333333335
+        "RA1": {
+            "Nota": 5,
+            "Porcentaje": 0.111
+        },
+        "RA2": {
+            "Nota": 6.99,
+            "Porcentaje": 0.111
+        },
+        "RA3": {
+            "Nota": 7.21,
+            "Porcentaje": 0.111
+        },
+        "RA4": {
+            "Nota": 7.69,
+            "Porcentaje": 0.111
+        },
+        "RA5": {
+            "Nota": 6.92,
+            "Porcentaje": 0.111
+        },
+        "RA6": {
+            "Nota": 6.48,
+            "Porcentaje": 0.111
+        },
+        "RA7": {
+            "Nota": 0,
+            "Porcentaje": 0.111
+        },
+        "RA8": {
+            "Nota": 0,
+            "Porcentaje": 0.111
+        },
+        "RA9": {
+            "Nota": 0,
+            "Porcentaje": 0.111
+        },
+        "RA10": {
+            "Nota": 0,
+            "Porcentaje": 0
+        }
     }
 }
 ```
