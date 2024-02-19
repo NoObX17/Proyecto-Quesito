@@ -3,16 +3,9 @@
 // Creamos la clase que albergará nuestra conexión a la BBDD, para luego utilizar el objeto en cada archivo que necesite BBDD
   Class DB_Configuration {
   // Iniciamos los atributos con la información para realizar la conexión
-  public $dsn = "mysql:host=localhost;dbname=cesur";
-  public $user = "root";
-  public $pass = "";
-
-  // Creamos el constructor sobrecargado con los atributos anteriores
-  public function __construct($dsn = "mysql:host=localhost;dbname=cesur", $user = "root", $pass = ""){
-    $this->dsn = $dsn;
-    $this->user = $user;
-    $this->pass = $pass;
-  }
+  public $dsn = "mysql:host=localhost;dbname=cesur;port=3306";
+  public $user = "cesur";
+  public $pass = "CesurDAW2324$";
 
   // Función con la extensión PDO para realizar la conexión, en un bloque try/catch para capturar posibles errores
   public function db_connect() {
@@ -26,4 +19,3 @@
     }
   }
 }
-?>
