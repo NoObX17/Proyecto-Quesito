@@ -12,6 +12,14 @@ Para la utilización actual de los Web Services debemos configurar una base de d
 Una vez cambiados los campos, los Web services seran funcionales.
 
 # Guia de uso de los Web Services
+## Rutas y métodos
+| Método | Nombre          | Ruta                              |
+|------- |-----------------|-----------------------------------|
+| `POST` | signin.php      | **API/jwt/signin.php**            |
+| `POST` | frases.php      | **API/frases.php**                |
+| `POST` | mediasexcel.php | **API/php-excel/mediasexcel.php** |
+| `POST` | raexcel.php     | **API/php-excel/raexcel.php**     |
+
 ## signin.php
 Este archivo es el encargado de crear el token jwt, para ello necesita leer un archivo `JSON` con la siguiente estructura:  
 ```
@@ -78,27 +86,27 @@ El resultado sera codificado y enviado en `JSON` con el siguiente formato:
 {
     "Notas": {
         "RA1": {
-            "Nota": 5,
+            "Nota": 4,
             "Porcentaje": 0.111
         },
         "RA2": {
-            "Nota": 6.99,
+            "Nota": 5.29,
             "Porcentaje": 0.111
         },
         "RA3": {
-            "Nota": 7.21,
+            "Nota": 5.92,
             "Porcentaje": 0.111
         },
         "RA4": {
-            "Nota": 7.69,
+            "Nota": 5.26,
             "Porcentaje": 0.111
         },
         "RA5": {
-            "Nota": 6.92,
+            "Nota": 6.29,
             "Porcentaje": 0.111
         },
         "RA6": {
-            "Nota": 6.48,
+            "Nota": 6.54,
             "Porcentaje": 0.111
         },
         "RA7": {
@@ -112,10 +120,6 @@ El resultado sera codificado y enviado en `JSON` con el siguiente formato:
         "RA9": {
             "Nota": 0,
             "Porcentaje": 0.111
-        },
-        "RA10": {
-            "Nota": 0,
-            "Porcentaje": 0
         }
     }
 }
