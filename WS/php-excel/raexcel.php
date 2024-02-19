@@ -1,22 +1,34 @@
 <?php
     require '../vendor/autoload.php';
-    include_once '../jwt/tokens-api/comprobartoken.php';
+    include_once '../jwt/comprobartoken.php';
 
     header("Access-Control-Max-Age: 3600");
-    header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE");
+    header("Access-Control-Allow-Methods: POST, PUT, DELETE, UPDATE, OPTIONS");
     header("Access-Control-Allow-Origin: * ");
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     use PhpOffice\PhpSpreadsheet\IOFactory;
 
-    if(!array_key_exists('HTTP_AUTHORIZATION', $_SERVER)){
-        http_response_code(401);
+    $capsalera = getallheaders();
+
+// Verificar el método de la solicitud (Arregla problema de CORS)
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        // Si es una solicitud OPTIONS, responder con éxito y terminar la ejecución del script
+        header('HTTP/1.1 200 OK');
+        exit();
+    }
+    
+    if(!array_key_exists('Authorization', $capsalera)){
+        header("HTTP/1.1 401 Unauthorized");
+        echo "Error 401: Unauthorized - Encabezado de autorización no presente.";
+
         die;
     }
     try {
-        if (!verificarJWT()) {
-            http_response_code(401);
+        if (!verificarJWT2($capsalera)) {
+            header("HTTP/1.1 401 Unauthorized");
+            echo "Error 401: Unauthorized - Token JWT no verificado correctamente.";
             die;
         }
     } catch (UnexpectedValueException $exception) {
@@ -25,10 +37,10 @@
 
     $api_data = json_decode(file_get_contents("php://input"));
     $modulo = $api_data->modul;
-    $any = $api_data->any;
+    $ano = $api_data->ano;
     $idAlumno = $api_data->id;
 
-    echo $excelFilePath = '../../excels/Cuaderno_TSDAW_'.$modulo.'_'.$any.'.xlsx';
+    $excelFilePath = '../../excels/Cuaderno_TSDAW_'.$modulo.'_'.$ano.'.xlsx';
     $spreadsheet = IOFactory::load($excelFilePath);
     $worksheet = $spreadsheet->getActiveSheet();
 
@@ -47,32 +59,23 @@
             $valueColumnA = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
 
             if ($valueColumnA !== null) {
-                $rowData["id"] = $valueColumnA;
 
                 // Crea el array solo del alumno con id igual al valor de la columna A
                 if ($idAlumno == $valueColumnA) {
-                    for ($col = 2; $col <= 4; ++$col) {
-                        $value = $worksheet->getCellByColumnAndRow($col, $row)->getValue();
-                        
-                        if ($value !== null) {
-                            if ($col ==2) {
-                                $rowData["Apellido1"] = $value;
-                            }elseif($col == 3){
-                                $rowData["Apellido2"] = $value;
-                            }else{
-                                $rowData["Nombre"] = $value;
-                            }
-                            
-                        }
-                    }
                     
                     $count = 1;
-                    for ($col = 5; $col <= $highestColumnIndex; $col += 3) {
+                    $countp = 1;
+                    $media = 0;
+                    for ($col = 5; $col <= $highestColumnIndex; $col ++) {
                         $value = $worksheet->getCellByColumnAndRow($col, $row)->getValue();
                         
-                        
-                        if ($value !== null) {
-                            $rowData["RA$count"] = $value;
+                        if ($value !== null && $value !== 0  && $worksheet->getCellByColumnAndRow($col, 9)->getValue()==="%T"){
+                            if ($value!== null && $worksheet->getCellByColumnAndRow($col-1, 9)->getValue()==="Media RA"){
+                                $valuenota = $worksheet->getCellByColumnAndRow($col-1, $row)->getValue();
+                                $rowData["RA$count"]["Nota"] = $valuenota;
+                            }
+                            $rowData["RA$count"]["Porcentaje"] = $value;
+                            $col++;
                             $count ++;
                         }
                     }
@@ -89,5 +92,3 @@
 
     header('Content-Type: application/json');
     echo $jsonData;
-
-?>
