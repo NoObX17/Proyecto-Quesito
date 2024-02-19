@@ -5,7 +5,7 @@ header("Access-Control-Allow-Origin: * ");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once 'db.php';
+include_once './db.php';
 
 $dbService = new DB_Configuration();
 $connection = $dbService->db_connect();
@@ -26,5 +26,5 @@ if ($result) {
 $connection = null; // Cerramos la conexión
 
 header('Content-Type: application/json');
-echo json_encode($response, JSON_UNESCAPED_UNICODE);
+echo json_encode($response);
 ?>
