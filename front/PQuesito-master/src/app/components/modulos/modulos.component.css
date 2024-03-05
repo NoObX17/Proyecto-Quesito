@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #002858;
+}
+
+.mat-drawer-content {
+  z-index: auto;
+}
+
+.example-container {
+  position: relative;
+  background: transparent;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.example-container span {
+  color: white;
+  margin: 15px 0 0 15px;
+}
+
+.example-sidenav-content {
+  height: 100%;
+}
+
+.example-sidenav-content span {
+  font-size: 40px;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.example-sidenav span {
+  margin: 0;
+  color: black;
+}
+
+.example-sidenav button {
+  margin-top: 12px;
+  border-radius: 10px;
+}
+
+mat-divider {
+  margin: 15px 0 15px 0;
+}
+
+section {
+  margin-top: 10px;
+  display: table;
+}
+
+.bLogOut {
+  position: fixed;
+  padding-right: 40px;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+.nombreModulos {
+  background: white;
+
+  padding: 30px 30px 30px 30px;
+  border-radius: 25px;
+}
+
+.nombreModulos p {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.tablaModulos {
+  background: white;
+  border-radius: 25px;
+
+  height: 575px;
+  margin-top: 20px;
+  z-index: 0;
+}
+
+.table-container {
+  max-height: 450px; /* Altura máxima de la tabla */
+  overflow-y: auto; /* Barra de desplazamiento vertical si es necesario */
+  z-index: 0;
+}
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+  padding: 0 16px 0 16px;
+}
+
+.tablaNotas {
+
+}
+
+.tablaNotas th {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.tablaNotas tr:hover {
+  background-color: rgba(211,211,211,0.5);
+  cursor: pointer;
+}
+
+.tablaModulos p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 25px 0 25px 0;
+
+  font-weight: 800;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.button-and-text {
+  display: flex;
+  align-items: center; /* Alinear verticalmente los elementos */
+  margin-left: 5px;
+}
+
+.button-and-text button {
+  margin-right: 190px; /* Ajustar el margen entre el botón y el texto */
+}
+
+.button-and-text span {
+  margin: 0;
+  color: black;
+}
+
+.tablaLabel {
+  position: relative;
+  bottom: -10rem;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  font-style: italic;
+  font-size: 11px;
+  font-weight: 450;
+}
+
+.graficoModulos {
+  background: white;
+  border-radius: 25px;
+}
+
+#canvas {
+  position: relative;
+}
+
+.graficoModulos p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.textoCiclo {
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.sobreTexto {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,224,1) 30%);
+
+  border-radius: 25px 25px 0 0;
+  width: 100%;
+  height: 120px;
+}

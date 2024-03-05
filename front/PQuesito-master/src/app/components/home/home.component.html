@@ -1,0 +1,28 @@
+<head>
+  <title>Bienvenido!</title>
+</head>
+
+<body style="background-image: url('assets/elipses.png')">
+<!-- Elipses decorativas -->
+  <div class="container-fluid">
+
+      <!-- Logo cesur -->
+      <img class="logo" src="assets/logo-cesur-2023-b&y.png" alt="Logo Cesur">
+
+      <div class="infoAlu">
+      <!-- Nombre alumno -->
+      <p>Bienvenido/a, {{ usuario.nombre }}!<!-- Variable de los alumnos --> </p>
+
+      <!-- Botón ver notas -->
+      <a mat-raised-button class="bNotas" (click)="onClick()">ver mis notas</a>
+      </div>
+
+      <div class="frameFrasesMot">
+      <!-- Frases motivadoras -->
+        <!-- Cambiar el texto por una variable que muestre mensajes motivadores de forma aleatoria -->
+        <p>{{fraseAleatoria}}</p>
+      </div>
+
+  </div>
+</body>
+

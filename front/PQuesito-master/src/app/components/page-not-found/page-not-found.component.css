@@ -1,0 +1,29 @@
+body {
+  background: linear-gradient(90deg, #FFF -16.07%, #FFC836 100%);
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 100px;
+  color: black;
+}
+
+.container-der {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.not-found {
+  font-size: 60px;
+}
+
+.explicacion {
+  font-size: 20px;
+}
